@@ -14,7 +14,7 @@
 
 %define		_basever		2.6.27
 %define		_postver		.19
-%define		_rel			2
+%define		_rel			3
 
 %define		_enable_debug_packages			0
 
@@ -53,6 +53,7 @@ Source11:	kernel-livecd-x86_64.config
 
 Patch0:		kernel-livecd-bootsplash.patch
 Patch1:		kernel-livecd-squashfs.patch
+Patch2:		kernel-livecd-security_inode_permission.patch
 
 URL:		http://www.kernel.org/
 BuildRequires:	binutils >= 3:2.18
@@ -378,6 +379,7 @@ Pakiet zawiera dokumentację do jądra Linuksa pochodzącą z katalogu
 
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # Fix EXTRAVERSION in main Makefile
 sed -i 's#EXTRAVERSION =.*#EXTRAVERSION = %{_postver}-%{alt_kernel}#g' Makefile
